@@ -6,4 +6,8 @@
     <File Path="global.json" />
     <File Path="nuget.config" />
   </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/ChoreoSaga/ChoreoSaga.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
 </Solution>
