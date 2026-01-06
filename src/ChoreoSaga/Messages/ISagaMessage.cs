@@ -2,7 +2,7 @@
 
 /// <summary>
 ///     Base interface for all saga messages.
-///     Provides correlation identifier for message tracking across saga steps.
+///     Provides a correlation identifier for message tracking across saga steps.
 /// </summary>
 public interface ISagaMessage
 {
