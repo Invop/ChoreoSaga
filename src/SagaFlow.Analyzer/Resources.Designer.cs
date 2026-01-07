@@ -166,5 +166,32 @@ namespace SagaFlow.Analyzer {
                 return ResourceManager.GetString("CHSG0004Title", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to In the Saga pattern, a pivot point represents the point of no return. A saga can have at most one pivot point. After the pivot point executes, compensating transactions are no longer relevant..
+        /// </summary>
+        internal static string CHSG0005Description {
+            get {
+                return ResourceManager.GetString("CHSG0005Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Class &apos;{0}&apos; has {1} pivot points but can have at most one.
+        /// </summary>
+        internal static string CHSG0005MessageFormat {
+            get {
+                return ResourceManager.GetString("CHSG0005MessageFormat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Saga can have at most one pivot point.
+        /// </summary>
+        internal static string CHSG0005Title {
+            get {
+                return ResourceManager.GetString("CHSG0005Title", resourceCulture);
+            }
+        }
     }
 }

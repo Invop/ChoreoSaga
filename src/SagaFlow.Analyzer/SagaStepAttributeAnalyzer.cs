@@ -22,6 +22,11 @@ public class SagaStepAttributeAnalyzer : DiagnosticAnalyzer
     /// </summary>
     public const string SagaClassRuleDiagnosticId = "CHSG0002";
 
+    /// <summary>
+    ///     Diagnostic ID for multiple pivot points validation rule.
+    /// </summary>
+    public const string MultiplePivotPointsRuleDiagnosticId = "CHSG0005";
+
     private const string SagaStepAttributeName = "SagaStepAttribute";
     private const string SagaMessageInterfaceName = "ISagaMessage";
     private const string SagaInterfaceName = "ISaga";
@@ -76,11 +81,36 @@ public class SagaStepAttributeAnalyzer : DiagnosticAnalyzer
         true,
         SagaClassRuleDescription);
 
+    // CHSG0005: Saga can have at most one pivot point
+    private static readonly LocalizableString MultiplePivotPointsRuleTitle = new LocalizableResourceString(
+        nameof(Resources.CHSG0005Title),
+        Resources.ResourceManager,
+        typeof(Resources));
+
+    private static readonly LocalizableString MultiplePivotPointsRuleMessageFormat = new LocalizableResourceString(
+        nameof(Resources.CHSG0005MessageFormat),
+        Resources.ResourceManager,
+        typeof(Resources));
+
+    private static readonly LocalizableString MultiplePivotPointsRuleDescription = new LocalizableResourceString(
+        nameof(Resources.CHSG0005Description),
+        Resources.ResourceManager,
+        typeof(Resources));
+
+    private static readonly DiagnosticDescriptor MultiplePivotPointsRule = new(
+        MultiplePivotPointsRuleDiagnosticId,
+        MultiplePivotPointsRuleTitle,
+        MultiplePivotPointsRuleMessageFormat,
+        "Usage",
+        DiagnosticSeverity.Error,
+        true,
+        MultiplePivotPointsRuleDescription);
+
     /// <summary>
     ///     Gets the supported diagnostic descriptors for this analyzer.
     /// </summary>
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } =
-        ImmutableArray.Create(MessageTypeRule, SagaClassRule);
+        ImmutableArray.Create(MessageTypeRule, SagaClassRule, MultiplePivotPointsRule);
 
     /// <summary>
     ///     Initializes the analyzer by registering analysis actions.
@@ -114,6 +144,9 @@ public class SagaStepAttributeAnalyzer : DiagnosticAnalyzer
 
         // Get all attributes on the class.
         ImmutableArray<AttributeData> attributes = namedTypeSymbol.GetAttributes();
+
+        // Track pivot points to detect multiple pivot points.
+        var pivotPointAttributes = new List<AttributeData>();
 
         foreach (AttributeData? attribute in attributes)
         {
@@ -163,6 +196,47 @@ public class SagaStepAttributeAnalyzer : DiagnosticAnalyzer
 
                 context.ReportDiagnostic(diagnostic);
             }
+
+            // Check if this attribute has isPivot = true.
+            // The isPivot parameter is the 4th constructor argument (index 3).
+            if (attribute.ConstructorArguments.Length >= 4)
+            {
+                var isPivotArgument = attribute.ConstructorArguments[3];
+                if (isPivotArgument.Kind == TypedConstantKind.Primitive &&
+                    isPivotArgument.Value is bool isPivot &&
+                    isPivot)
+                    pivotPointAttributes.Add(attribute);
+            }
+            else
+            {
+                // Check named arguments as well.
+                foreach (var namedArg in attribute.NamedArguments)
+                    if (namedArg.Key == "IsPivot" &&
+                        namedArg.Value.Kind == TypedConstantKind.Primitive &&
+                        namedArg.Value.Value is bool isPivot &&
+                        isPivot)
+                    {
+                        pivotPointAttributes.Add(attribute);
+                        break;
+                    }
+            }
+        }
+
+        // Check if there are multiple pivot points.
+        if (pivotPointAttributes.Count > 1)
+        {
+            // Report diagnostic on the second pivot point found.
+            var secondPivot = pivotPointAttributes[1];
+            var location = secondPivot.ApplicationSyntaxReference?.GetSyntax().GetLocation() ??
+                           namedTypeSymbol.Locations[0];
+
+            var diagnostic = Diagnostic.Create(
+                MultiplePivotPointsRule,
+                location,
+                namedTypeSymbol.Name,
+                pivotPointAttributes.Count);
+
+            context.ReportDiagnostic(diagnostic);
         }
     }
 

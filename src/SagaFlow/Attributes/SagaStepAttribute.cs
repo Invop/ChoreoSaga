@@ -26,11 +26,18 @@ public sealed class SagaStepAttribute : Attribute
     ///     Set to true if the message can act as both initiator and executor. Default is
     ///     false.
     /// </param>
-    public SagaStepAttribute(Type messageType, bool isInitiator = false, bool canBeInitiatorAndExecutor = false)
+    /// <param name="isPivot">
+    ///     Set to true if this step is the pivot point of the saga. A pivot point represents the point of no
+    ///     return - after it executes, compensating transactions are no longer relevant. A saga can have at most one pivot
+    ///     point. Default is false.
+    /// </param>
+    public SagaStepAttribute(Type messageType, bool isInitiator = false, bool canBeInitiatorAndExecutor = false,
+        bool isPivot = false)
     {
         MessageType = messageType;
         IsInitiator = isInitiator;
         CanBeInitiatorAndExecutor = canBeInitiatorAndExecutor;
+        IsPivot = isPivot;
     }
 
     /// <summary>
@@ -47,4 +54,11 @@ public sealed class SagaStepAttribute : Attribute
     ///     Gets a value indicating whether the message can act as both initiator and executor.
     /// </summary>
     public bool CanBeInitiatorAndExecutor { get; }
+
+    /// <summary>
+    ///     Gets a value indicating whether this step is the pivot point of the saga.
+    ///     A pivot point represents the point of no return in a saga - after it executes,
+    ///     compensating transactions are no longer relevant. A saga can have at most one pivot point.
+    /// </summary>
+    public bool IsPivot { get; }
 }

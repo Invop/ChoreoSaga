@@ -72,4 +72,16 @@
         <value>NonRetryableExceptions must contain only Exception types</value>
         <comment>The title of the diagnostic.</comment>
     </data>
+    <data name="CHSG0005Description" xml:space="preserve">
+        <value>In the Saga pattern, a pivot point represents the point of no return. A saga can have at most one pivot point. After the pivot point executes, compensating transactions are no longer relevant.</value>
+        <comment>An optional longer localizable description of the diagnostic.</comment>
+    </data>
+    <data name="CHSG0005MessageFormat" xml:space="preserve">
+        <value>Class '{0}' has {1} pivot points but can have at most one</value>
+        <comment>The format-able message the diagnostic displays.</comment>
+    </data>
+    <data name="CHSG0005Title" xml:space="preserve">
+        <value>Saga can have at most one pivot point</value>
+        <comment>The title of the diagnostic.</comment>
+    </data>
 </root>
