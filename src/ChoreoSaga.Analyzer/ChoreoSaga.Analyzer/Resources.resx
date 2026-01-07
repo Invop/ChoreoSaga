@@ -48,4 +48,28 @@
         <value>SagaStepAttribute requires ISaga implementation</value>
         <comment>The title of the diagnostic.</comment>
     </data>
+    <data name="CHSG0003Description" xml:space="preserve">
+        <value>The exception types specified in RetryOnExceptions property must inherit from System.Exception.</value>
+        <comment>An optional longer localizable description of the diagnostic.</comment>
+    </data>
+    <data name="CHSG0003MessageFormat" xml:space="preserve">
+        <value>Type '{0}' in RetryOnExceptions does not inherit from System.Exception</value>
+        <comment>The format-able message the diagnostic displays.</comment>
+    </data>
+    <data name="CHSG0003Title" xml:space="preserve">
+        <value>RetryOnExceptions must contain only Exception types</value>
+        <comment>The title of the diagnostic.</comment>
+    </data>
+    <data name="CHSG0004Description" xml:space="preserve">
+        <value>The exception types specified in NonRetryableExceptions property must inherit from System.Exception.</value>
+        <comment>An optional longer localizable description of the diagnostic.</comment>
+    </data>
+    <data name="CHSG0004MessageFormat" xml:space="preserve">
+        <value>Type '{0}' in NonRetryableExceptions does not inherit from System.Exception</value>
+        <comment>The format-able message the diagnostic displays.</comment>
+    </data>
+    <data name="CHSG0004Title" xml:space="preserve">
+        <value>NonRetryableExceptions must contain only Exception types</value>
+        <comment>The title of the diagnostic.</comment>
+    </data>
 </root>

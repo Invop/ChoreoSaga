@@ -10,5 +10,7 @@
     <Project Path="src/ChoreoSaga.Analyzer/ChoreoSaga.Analyzer/ChoreoSaga.Analyzer.csproj"/>
     <Project Path="src/ChoreoSaga/ChoreoSaga.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="tests/ChoreoSaga.Analyzer.Tests/ChoreoSaga.Analyzer.Tests.csproj"/>
+  </Folder>
 </Solution>

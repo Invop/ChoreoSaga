@@ -5,7 +5,6 @@ using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace ChoreoSaga.Analyzer;
 
-//TODO: Tests
 /// <summary>
 ///     Analyzer that validates the correct usage of SagaStepAttribute.
 ///     Ensures that message types implement ISagaMessage and that the attribute is applied to ISaga implementations.

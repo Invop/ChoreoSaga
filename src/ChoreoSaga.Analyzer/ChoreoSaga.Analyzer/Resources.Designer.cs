@@ -112,5 +112,59 @@ namespace ChoreoSaga.Analyzer {
                 return ResourceManager.GetString("CHSG0002Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The exception types specified in RetryOnExceptions property must inherit from System.Exception..
+        /// </summary>
+        internal static string CHSG0003Description {
+            get {
+                return ResourceManager.GetString("CHSG0003Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type &apos;{0}&apos; in RetryOnExceptions does not inherit from System.Exception.
+        /// </summary>
+        internal static string CHSG0003MessageFormat {
+            get {
+                return ResourceManager.GetString("CHSG0003MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RetryOnExceptions must contain only Exception types.
+        /// </summary>
+        internal static string CHSG0003Title {
+            get {
+                return ResourceManager.GetString("CHSG0003Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The exception types specified in NonRetryableExceptions property must inherit from System.Exception..
+        /// </summary>
+        internal static string CHSG0004Description {
+            get {
+                return ResourceManager.GetString("CHSG0004Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type &apos;{0}&apos; in NonRetryableExceptions does not inherit from System.Exception.
+        /// </summary>
+        internal static string CHSG0004MessageFormat {
+            get {
+                return ResourceManager.GetString("CHSG0004MessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NonRetryableExceptions must contain only Exception types.
+        /// </summary>
+        internal static string CHSG0004Title {
+            get {
+                return ResourceManager.GetString("CHSG0004Title", resourceCulture);
+            }
+        }
     }
 }
