@@ -7,6 +7,11 @@
 public interface ISagaMessage
 {
     /// <summary>
+    ///     Gets the idempotency key to ensure the command is processed only once.
+    /// </summary>
+    string IdempotencyKey { get; }
+
+    /// <summary>
     ///     Gets the correlation identifier that links all messages belonging to the same saga instance.
     /// </summary>
     string CorrelationId { get; }

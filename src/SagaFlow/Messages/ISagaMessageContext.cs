@@ -9,7 +9,7 @@
 ///     The message context serves as a container that includes not only the business message but also
 ///     essential metadata for message correlation, identification, and routing within the saga framework.
 /// </remarks>
-public interface IMessageContext<out TMessage> where TMessage : ISagaMessage
+public interface ISagaMessageContext<out TMessage> where TMessage : ISagaMessage
 {
     /// <summary>
     ///     Gets the saga message instance containing the business data.
