@@ -1,4 +1,4 @@
-﻿namespace ChoreoSaga.Attributes;
+﻿namespace SagaFlow.Attributes;
 
 /// <summary>
 ///     Marks a property as part of the idempotency key for saga message deduplication.

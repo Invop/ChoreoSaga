@@ -1,4 +1,4 @@
-﻿namespace ChoreoSaga.Attributes;
+﻿namespace SagaFlow.Attributes;
 
 /// <summary>
 ///     Marks a property as part of the correlation identifier for saga message routing.

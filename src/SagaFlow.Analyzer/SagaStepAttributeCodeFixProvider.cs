@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace ChoreoSaga.Analyzer;
+namespace SagaFlow.Analyzer;
 
 //TODO: Tests
 /// <summary>
@@ -102,7 +102,7 @@ public class SagaStepAttributeCodeFixProvider : CodeFixProvider
 
         // Create the ISaga interface type.
         SimpleBaseTypeSyntax sagaInterface = SyntaxFactory.SimpleBaseType(
-            SyntaxFactory.ParseTypeName("ChoreoSaga.Sagas.ISaga"));
+            SyntaxFactory.ParseTypeName("SagaFlow.Sagas.ISaga"));
 
         // Add the interface to the base list.
         BaseListSyntax newBaseList = classDeclaration.BaseList is null

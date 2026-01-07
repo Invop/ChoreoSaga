@@ -3,7 +3,7 @@
   "profiles": {
     "DebugRoslynAnalyzers": {
       "commandName": "DebugRoslynComponent",
-      "targetProject": "../ChoreoSaga.Analyzer.Sample/ChoreoSaga.Analyzer.Sample.csproj"
+      "targetProject": "../SagaFlow.Analyzer/SagaFlow.Analyzer.csproj"
     }
   }
 }

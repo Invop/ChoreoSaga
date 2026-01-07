@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis.Testing;
-using Verify = Microsoft.CodeAnalysis.CSharp.Testing.CSharpAnalyzerVerifier<ChoreoSaga.Analyzer.SagaStepAttributeAnalyzer, Microsoft.CodeAnalysis.Testing.DefaultVerifier>;
+using Verify = Microsoft.CodeAnalysis.CSharp.Testing.CSharpAnalyzerVerifier<SagaFlow.Analyzer.SagaStepAttributeAnalyzer, Microsoft.CodeAnalysis.Testing.DefaultVerifier>;
 
-namespace ChoreoSaga.Analyzer.Tests;
+namespace SagaFlow.Analyzer.Tests;
 
 /// <summary>
 ///     Tests for SagaStepAttributeAnalyzer to ensure proper validation of SagaStepAttribute usage.
@@ -10,7 +10,7 @@ public class SagaStepAttributeAnalyzerTests
 {
     private const string SagaBaseCode = """
 
-                                        namespace ChoreoSaga.Messages
+                                        namespace SagaFlow.Messages
                                         {
                                             public interface ISagaMessage
                                             {
@@ -18,7 +18,7 @@ public class SagaStepAttributeAnalyzerTests
                                             }
                                         }
 
-                                        namespace ChoreoSaga.Sagas
+                                        namespace SagaFlow.Sagas
                                         {
                                             public interface ISaga
                                             {
@@ -26,7 +26,7 @@ public class SagaStepAttributeAnalyzerTests
                                             }
                                         }
 
-                                        namespace ChoreoSaga.Attributes
+                                        namespace SagaFlow.Attributes
                                         {
                                             using System;
 
@@ -55,9 +55,9 @@ public class SagaStepAttributeAnalyzerTests
 
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
-                                               using ChoreoSaga.Messages;
-                                               using ChoreoSaga.Sagas;
+                                               using SagaFlow.Attributes;
+                                               using SagaFlow.Messages;
+                                               using SagaFlow.Sagas;
 
                                                public class OrderCreatedEvent : ISagaMessage
                                                {
@@ -82,9 +82,9 @@ public class SagaStepAttributeAnalyzerTests
 
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
-                                               using ChoreoSaga.Messages;
-                                               using ChoreoSaga.Sagas;
+                                               using SagaFlow.Attributes;
+                                               using SagaFlow.Messages;
+                                               using SagaFlow.Sagas;
 
                                                public class OrderCreatedEvent : ISagaMessage
                                                {
@@ -115,8 +115,8 @@ public class SagaStepAttributeAnalyzerTests
 
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
-                                               using ChoreoSaga.Sagas;
+                                               using SagaFlow.Attributes;
+                                               using SagaFlow.Sagas;
 
                                                public class InvalidMessage
                                                {
@@ -145,8 +145,8 @@ public class SagaStepAttributeAnalyzerTests
 
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
-                                               using ChoreoSaga.Messages;
+                                               using SagaFlow.Attributes;
+                                               using SagaFlow.Messages;
 
                                                public class OrderCreatedEvent : ISagaMessage
                                                {
@@ -175,7 +175,7 @@ public class SagaStepAttributeAnalyzerTests
 
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
+                                               using SagaFlow.Attributes;
 
                                                public class InvalidMessage
                                                {
@@ -210,9 +210,9 @@ public class SagaStepAttributeAnalyzerTests
 
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
-                                               using ChoreoSaga.Messages;
-                                               using ChoreoSaga.Sagas;
+                                               using SagaFlow.Attributes;
+                                               using SagaFlow.Messages;
+                                               using SagaFlow.Sagas;
 
                                                public class OrderCreatedEvent : ISagaMessage
                                                {
@@ -247,9 +247,9 @@ public class SagaStepAttributeAnalyzerTests
 
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
-                                               using ChoreoSaga.Messages;
-                                               using ChoreoSaga.Sagas;
+                                               using SagaFlow.Attributes;
+                                               using SagaFlow.Messages;
+                                               using SagaFlow.Sagas;
 
                                                public class OrderCreatedEvent : ISagaMessage
                                                {
@@ -277,9 +277,9 @@ public class SagaStepAttributeAnalyzerTests
         const string test = SagaBaseCode + """
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
-                                               using ChoreoSaga.Messages;
-                                               using ChoreoSaga.Sagas;
+                                               using SagaFlow.Attributes;
+                                               using SagaFlow.Messages;
+                                               using SagaFlow.Sagas;
 
                                                public interface IOrderMessage : ISagaMessage
                                                {
@@ -308,9 +308,9 @@ public class SagaStepAttributeAnalyzerTests
 
                                            namespace TestNamespace
                                            {
-                                               using ChoreoSaga.Attributes;
-                                               using ChoreoSaga.Messages;
-                                               using ChoreoSaga.Sagas;
+                                               using SagaFlow.Attributes;
+                                               using SagaFlow.Messages;
+                                               using SagaFlow.Sagas;
 
                                                public class OrderCreatedEvent : ISagaMessage
                                                {

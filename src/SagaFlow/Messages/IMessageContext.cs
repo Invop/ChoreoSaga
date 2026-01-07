@@ -1,4 +1,4 @@
-﻿namespace ChoreoSaga.Messages;
+﻿namespace SagaFlow.Messages;
 
 /// <summary>
 ///     Provides context information for saga message processing, encapsulating the message along with its metadata.

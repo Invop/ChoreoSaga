@@ -1,4 +1,4 @@
-﻿namespace ChoreoSaga.Attributes;
+﻿namespace SagaFlow.Attributes;
 
 /// <summary>
 ///     Specifies the concurrency mode for a saga.

@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis.Testing;
-using Verify = Microsoft.CodeAnalysis.CSharp.Testing.CSharpAnalyzerVerifier<ChoreoSaga.Analyzer.RetryPolicyAttributeAnalyzer, Microsoft.CodeAnalysis.Testing.DefaultVerifier>;
+using Verify = Microsoft.CodeAnalysis.CSharp.Testing.CSharpAnalyzerVerifier<SagaFlow.Analyzer.RetryPolicyAttributeAnalyzer, Microsoft.CodeAnalysis.Testing.DefaultVerifier>;
 
-namespace ChoreoSaga.Analyzer.Tests;
+namespace SagaFlow.Analyzer.Tests;
 
 /// <summary>
 ///     Tests for RetryPolicyAttributeAnalyzer to ensure proper validation of RetryPolicyAttribute usage.
@@ -10,7 +10,7 @@ public class RetryPolicyAttributeAnalyzerTests
 {
     private const string RetryPolicyBaseCode = """
 
-                                               namespace ChoreoSaga.Attributes
+                                               namespace SagaFlow.Attributes
                                                {
                                                    using System;
 
@@ -48,7 +48,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       [RetryPolicy(RetryOnExceptions = new[] { typeof(InvalidOperationException), typeof(TimeoutException) })]
                                                       public class OrderSaga
@@ -71,7 +71,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       [RetryPolicy(NonRetryableExceptions = new[] { typeof(ArgumentException), typeof(ArgumentNullException) })]
                                                       public class OrderSaga
@@ -94,7 +94,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       [RetryPolicy(
                                                           RetryOnExceptions = new[] { typeof(InvalidOperationException) },
@@ -119,7 +119,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public class OrderProcessingException : Exception
                                                       {
@@ -146,7 +146,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public class OrderProcessingException : Exception
                                                       {
@@ -177,7 +177,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public class InvalidExceptionType
                                                       {
@@ -208,7 +208,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public class InvalidExceptionType
                                                       {
@@ -239,7 +239,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public class InvalidRetryType
                                                       {
@@ -282,7 +282,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public class InvalidType1
                                                       {
@@ -323,7 +323,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public class InvalidType
                                                       {
@@ -353,7 +353,7 @@ public class RetryPolicyAttributeAnalyzerTests
 
                                                   namespace TestNamespace
                                                   {
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       [RetryPolicy(MaxRetries = 5, RetryDelayMilliseconds = 2000)]
                                                       public class OrderSaga
@@ -376,7 +376,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       [RetryPolicy(
                                                           MaxRetries = 5,
@@ -409,7 +409,7 @@ public class RetryPolicyAttributeAnalyzerTests
 
                                                   namespace TestNamespace
                                                   {
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public interface IOrderSaga
                                                       {
@@ -428,7 +428,7 @@ public class RetryPolicyAttributeAnalyzerTests
 
                                                   namespace TestNamespace
                                                   {
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public struct OrderData
                                                       {
@@ -449,7 +449,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   {
                                                       using System;
                                                       using System.IO;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       [RetryPolicy(RetryOnExceptions = new[] { typeof(IOException), typeof(FileNotFoundException) })]
                                                       public class OrderSaga
@@ -472,7 +472,7 @@ public class RetryPolicyAttributeAnalyzerTests
                                                   namespace TestNamespace
                                                   {
                                                       using System;
-                                                      using ChoreoSaga.Attributes;
+                                                      using SagaFlow.Attributes;
 
                                                       public class InvalidType1
                                                       {

@@ -1,4 +1,4 @@
-﻿namespace ChoreoSaga.Messages;
+﻿namespace SagaFlow.Messages;
 
 /// <summary>
 ///     Defines a contract for handling specific types of saga messages within the saga orchestration framework.

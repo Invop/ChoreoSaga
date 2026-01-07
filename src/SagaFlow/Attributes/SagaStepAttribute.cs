@@ -1,4 +1,6 @@
-﻿namespace ChoreoSaga.Attributes;
+﻿using SagaFlow.Messages;
+
+namespace SagaFlow.Attributes;
 
 /// <summary>
 ///     Marks a saga class as handling a specific saga message type.
@@ -6,7 +8,7 @@
 ///         [SagaStep(typeof(MyMessage), isInitiator: true, canBeInitiatorAndExecutor: true)]
 ///     </example>
 ///     <remarks>
-///         The provided messageType must implement <see cref="ChoreoSaga.Messages.ISagaMessage" />.
+///         The provided messageType must implement <see cref="ISagaMessage" />.
 ///         This is validated at runtime when registering saga steps.
 ///         Set isInitiator to true if the message initiates the saga.
 ///         Set canBeInitiatorAndExecutor to true if the message can act as both initiator and executor.

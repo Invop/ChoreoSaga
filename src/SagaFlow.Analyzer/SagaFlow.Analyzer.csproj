@@ -9,8 +9,7 @@
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
 
-        <RootNamespace>ChoreoSaga.Analyzer</RootNamespace>
-        <AssemblyName>ChoreoSaga.Analyzer</AssemblyName>
+        <PackageId>SagaFlow.Analyzer</PackageId>
     </PropertyGroup>
 
     <ItemGroup>

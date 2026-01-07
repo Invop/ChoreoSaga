@@ -1,4 +1,4 @@
-namespace ChoreoSaga.Attributes;
+namespace SagaFlow.Attributes;
 
 /// <summary>
 ///     Configures retry policy for message handling (HandleAsync).

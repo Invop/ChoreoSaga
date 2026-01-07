@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace ChoreoSaga.Analyzer;
+namespace SagaFlow.Analyzer;
 
 /// <summary>
 ///     Analyzer that validates the correct usage of RetryPolicyAttribute.

@@ -1,4 +1,4 @@
-﻿namespace ChoreoSaga.Messages;
+﻿namespace SagaFlow.Messages;
 
 /// <summary>
 ///     Interface for saga commands.
