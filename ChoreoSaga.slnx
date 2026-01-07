@@ -1,16 +1,16 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path="Directory.Build.props" />
-    <File Path="Directory.Build.targets" />
-    <File Path="Directory.Packages.props" />
-    <File Path="global.json" />
-    <File Path="nuget.config" />
-  </Folder>
-  <Folder Name="/src/">
-    <Project Path="src/ChoreoSaga.Analyzer/ChoreoSaga.Analyzer/ChoreoSaga.Analyzer.csproj"/>
-    <Project Path="src/ChoreoSaga/ChoreoSaga.csproj" />
-  </Folder>
-  <Folder Name="/tests/">
-    <Project Path="tests/ChoreoSaga.Analyzer.Tests/ChoreoSaga.Analyzer.Tests.csproj"/>
-  </Folder>
+    <Folder Name="/Solution Items/">
+        <File Path="Directory.Build.props"/>
+        <File Path="Directory.Build.targets"/>
+        <File Path="Directory.Packages.props"/>
+        <File Path="global.json"/>
+        <File Path="nuget.config"/>
+    </Folder>
+    <Folder Name="/src/">
+        <Project Path="src/ChoreoSaga.Analyzer/ChoreoSaga.Analyzer.csproj"/>
+        <Project Path="src/ChoreoSaga/ChoreoSaga.csproj"/>
+    </Folder>
+    <Folder Name="/tests/">
+        <Project Path="tests/ChoreoSaga.Analyzer.Tests/ChoreoSaga.Analyzer.Tests.csproj"/>
+    </Folder>
 </Solution>
